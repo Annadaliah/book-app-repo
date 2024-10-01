@@ -1,0 +1,318 @@
+/*Font Family styles*/
+.poppins-thin {
+    font-family: "Poppins", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+}
+
+.poppins-extralight {
+    font-family: "Poppins", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+}
+
+.poppins-light {
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.poppins-regular {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.poppins-medium {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.poppins-semibold {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.poppins-bold {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.poppins-extrabold {
+    font-family: "Poppins", sans-serif;
+    font-weight: 800;
+    font-style: normal;
+}
+
+.poppins-black {
+    font-family: "Poppins", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+}
+
+.poppins-thin-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 100;
+    font-style: italic;
+}
+
+.poppins-extralight-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 200;
+    font-style: italic;
+}
+
+.poppins-light-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: italic;
+}
+
+.poppins-regular-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.poppins-medium-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: italic;
+}
+
+.poppins-semibold-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: italic;
+}
+
+.poppins-bold-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+}
+
+.poppins-extrabold-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 800;
+    font-style: italic;
+}
+
+.poppins-black-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 900;
+    font-style: italic;
+}
+
+
+/* Style rules for the overall files and the main body*/
+html, 
+body {
+    background-image: url(/static/images/paper_texture1.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-color: rgb(186, 161, 102);
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    -webkit-font-smoothing: antialiased;
+}
+
+main {
+    padding: 100px;
+    font-size: 30px;
+    font-family: 'Poppins', sans-serif;
+    color: black;
+    align-items: center;
+}
+
+
+/* Style Rules for Header */
+header {
+    -webkit-transition: all .2s ease-out;
+    -moz-transition: all .2s ease-out;
+    -ms-transition: all .2s ease-out;
+    -o-transition: all .2s ease-out;
+    transition: all .2s ease-out;
+}
+
+.title-text {
+    background-size: cover;
+    color: #000000;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    font-family: 'Poppins', sans-serif;
+    font-size: 55px;
+    padding: 15px;
+    margin: 0;
+    float: left;
+    max-width: 25%;
+    -webkit-text-stroke: 1px #000000;
+}
+
+
+
+/* Style rules for Links */
+a {
+    background: url("") no-repeat center center;
+    background-size: cover;
+    color: #000000;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    -webkit-text-stroke: 1px #000000;
+}
+
+a:visited {
+    background: url("") no-repeat center center;
+    background-size: cover;
+    color: #000000;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    -webkit-text-stroke: 1px #000000;
+}
+
+a:hover,
+a:active,
+a:focus {
+    background-size: cover;
+    color: #4b2b2b89;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    -webkit-text-stroke: 1px #000000;
+}
+
+/* Style rules for Navigation Area */
+nav {
+    padding: 10px;
+    max-width: 65%;
+    margin-top: 0%;
+    float: right;
+}
+
+nav ul {
+    border: 5px #000000;
+    list-style-type: none;
+    margin: 0;
+    padding: 5px;
+    font-size: 30px;
+    font-family: 'Solitreo', 'cursive';
+    text-align: center;
+    float: right;
+}
+
+nav li {
+    font-size: 40px;
+    font-family: 'Poppins', sans-serif;
+    display: inline-block;
+}
+
+nav li a {
+    display: block;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.active {
+    background-color: rgb(0, 0, 0);
+}
+
+li a:hover {
+    background-color: #000000;
+    color: rgb(0, 0, 0);
+}
+
+/* Main body display setting */
+
+main {
+    padding: 100px;
+    font-size: 30px;
+    font-family: 'Poppins', sans-serif;
+    color: black;
+    align-items: center;
+}
+
+h2 {
+    font-family: 'Poppins';
+    color: black;
+    padding: 2%;
+    background: url("") no-repeat center center;
+    background-size: cover;
+    color: #000000;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+}
+
+.intro {
+    background-size: cover;
+    color: #000000;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    margin: 5px;
+}
+
+.intro .p {
+    text-align: center;
+}
+
+#home-image {
+    max-width: 1280px;
+}
+
+#images {
+    align-items: center;
+    height: auto;
+    max-width: 50%;
+    padding: 3px;
+}
+
+
+#logo {
+    align-items: center;
+    height: auto;
+    max-width: 90%;
+    padding: 3px;
+}
+
+/* Footer Display */
+footer {
+    text-align: center;
+    background-size: cover;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    -webkit-text-stroke: 1px #000000;
+    font-size: 30px;
+    font-family: 'Poppins';
+    color: black;
+    bottom: 0;
+    width: 100%;
+    height: 5em;
+    padding-bottom: 2em;
+    margin-top: auto;
+}
+
+#link:hover,
+#link:active,
+#link:focus {
+    color: #000000;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    -webkit-text-stroke: 1px #000000;
+}
