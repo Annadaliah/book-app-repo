@@ -1,5 +1,5 @@
 """app.py: render and route to webpages"""
-from flask import Flask, render_template, redirect, url_for
+from flask import request, render_template, redirect, url_for
 from sqlalchemy import insert, text, select
 
 from db.server import app
@@ -8,8 +8,6 @@ from db.server import db
 from db.schema.post import Post
 
 from socketserver import *
-
-app = Flask(__name__)
 
 @app.route('/')
 def baseFile():
