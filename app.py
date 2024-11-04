@@ -1,17 +1,14 @@
 """app.py: render and route to webpages"""
-from flask import Flask, render_template
+from flask import render_template
 
-from socketserver import *
-
-app = Flask(__name__)
+from server import *
 
 @app.route('/')
-def baseFile():
-        return render_template("baseFile.html")
+def login():
+    
+    return render_template("loginpage.html")
 
-@app.route('/templates/')
-def baseFile2():
-    return render_template("baseFile2.html")
-
-if __name__ == '__main__':
+if __name__ == "__main__":
+    # debug refreshes your application with your new changes every time you save
     app.run(debug=True)
+
