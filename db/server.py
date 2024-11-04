@@ -24,6 +24,8 @@ db = SQLAlchemy(app)
 # import table to be created in postgres
 from db.schema.table import Table
 from db.schema.post import Post
+from db.schema.user import User
+from db.schema.books import Book
 
 # verify the db connection is successful
 with app.app_context():

@@ -16,7 +16,7 @@
 <div class="w3-top">
     <div class="w3-bar w3-theme-d2 w3-left-align w3-large">
      <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
-     <a href="home2.html" class="w3-bar-item w3-button w3-padding-large w3-theme-d4"><i class="fa fa-home w3-margin-right"></i>Bookmark</a>
+     <a href="home2" class="w3-bar-item w3-button w3-padding-large w3-theme-d4"><i class="fa fa-home w3-margin-right"></i>Bookmark</a>
      <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="News"><i class="fa fa-globe"></i></a>
      <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Account Settings"><i class="fa fa-user"></i></a>
      <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Messages"><i class="fa fa-envelope"></i></a>
@@ -51,23 +51,23 @@
             <!-- Create a sign up form here -->
             <h1>Sign Up</h1>
                 <form class="w3-card w3-round w3-padding w3-white" method="POST">
+                    <p label for="UserID">UserID:<label></p>
+                    <input class="w3-border w3-padding" type="text" id="UserId" name="UserID" placeholder="Choose a user ID" required/><br>                   
                     <p label for="FirstName">First Name:</label></p>
                     <input class="w3-border w3-padding" type="text" id="FirstName" name="FirstName" placeholder="First Name" minlength="1" required/><br>
                     <p label for="LastName">Last Name:</label><br>
                     <input class="w3-border w3-padding" type="text" id="LastName" name="LastName" placeholder="Last Name" minlength="1" required/></p>
                     <p label for="Email">Email:</label></p>
                     <input class="w3-border w3-padding" type="email" id="Email" name="Email" placeholder="User@domain.com" required/><br>
-                    <p label for="UserID">UserID:<label></p>
-                    <input class="w3-border w3-padding" type="text" id="UserId" name="UserID" placeholder="Choose a user ID" required/><br> 
                     <p label for="Password">Password:</label></p>
                     <input class="w3-border w3-padding" type="password" id="Password" name="Password" placeholder="Password" required/><br>
                     <br>
                     <button type="button" type="submit" class="w3-button w3-theme"></i> Submit</button> 
                     <br>
                     <br>
-                    <button type="button" type="submit" class="w3-button w3-theme" id="home2"> Home</button>
+                    
                 </form> 
-            
+            <button type="button" type="submit" class="w3-button w3-theme" id="home2"> Home</button>
         </div>
     </body>
 </html>
