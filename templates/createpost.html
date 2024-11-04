@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-    <head>
+
+<head>
     <title>Bookmark Create an Account</title>
         
     <meta charset="UTF-8">
@@ -36,38 +37,34 @@
     <br>
     <br>
 
-   <div
+    <head>
+<div
         
         class="w3-container w3-card w3-white w3-round w3-margin">
-            <h2> Welcome to Bookmark! We are so glad you chose to join the club. 
-                Please provide the info below and we'll get you on your way!!</h2>      
+            <h2> We love to know what you're reading and what you're thinking about it.</h2>      
 
     </div>
-
+    </head>
     <body>
-
+        <h1>Create a Post</h1>
         <div class="w3-container w3-card w3-white w3-round w3-margin">
-        
             <!-- Create a sign up form here -->
-            <h1>Sign Up</h1>
-                <form class="w3-card w3-round w3-padding w3-white" method="POST">
-                    <p label for="FirstName">First Name:</label></p>
-                    <input class="w3-border w3-padding" type="text" id="FirstName" name="FirstName" placeholder="First Name" minlength="1" required/><br>
-                    <p label for="LastName">Last Name:</label><br>
-                    <input class="w3-border w3-padding" type="text" id="LastName" name="LastName" placeholder="Last Name" minlength="1" required/></p>
-                    <p label for="Email">Email:</label></p>
-                    <input class="w3-border w3-padding" type="email" id="Email" name="Email" placeholder="User@domain.com" required/><br>
-                    <p label for="UserID">UserID:<label></p>
-                    <input class="w3-border w3-padding" type="text" id="UserId" name="UserID" placeholder="Choose a user ID" required/><br> 
-                    <p label for="Password">Password:</label></p>
-                    <input class="w3-border w3-padding" type="password" id="Password" name="Password" placeholder="Password" required/><br>
-                    <br>
-                    <button type="button" type="submit" class="w3-button w3-theme"></i> Submit</button> 
-                    <br>
-                    <br>
-                    <button type="button" type="submit" class="w3-button w3-theme" id="home2"> Home</button>
-                </form> 
-            
+            <form method="POST">
+                <label for="UserID">User ID:</label><br>
+                <input type="text" id="UserID" name="UserID" placeholder="UserID" minlength="1" required/><br>
+                <label for="BookName">Book Name:</label><br>
+                <input type="text" id="BookName" name="BookName" placeholder="Book Name" minlength="1" required/><br>
+                <label for="Author">Author:</label><br>
+                <input type="text" id="Author" name="Author" placeholder="Author" /><br>
+                <label for="Post">Post:</label><br>
+                <input type="text" id="Post" name="Post" placeholder="Create a post" required/><br>
+                <input type="submit" value="Submit">
+              </form> 
         </div>
+
+        <br>
+        <a href="/home2">
+            <button type="button" id="home">Home</button>
+        </a>
     </body>
 </html>
