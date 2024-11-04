@@ -23,7 +23,7 @@ h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
 <div class="w3-top">
  <div class="w3-bar w3-theme-d2 w3-left-align w3-large">
   <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
-  <a href="home2.html" class="w3-bar-item w3-button w3-padding-large w3-theme-d4"><i class="fa fa-home w3-margin-right"></i>Bookmark</a>
+  <a href="home2" class="w3-bar-item w3-button w3-padding-large w3-theme-d4"><i class="fa fa-home w3-margin-right"></i>Bookmark</a>
   <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="News"><i class="fa fa-globe"></i></a>
   <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Account Settings"><i class="fa fa-user"></i></a>
   <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Messages"><i class="fa fa-envelope"></i></a>
@@ -84,7 +84,13 @@ h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
                 <li>Are you there God, it's me Margaret</li>
                 <li>Ender's Game</li>
                 <li>The Martian</li>
-            </ul></p>
+                <a>{% for book in books %}
+                          {% for post_attribs in book %}
+          
+                            <li>{{ post_attribs.Title }}</li>
+                      
+                          {% endfor %}
+                        {% endfor %}</a>
           </div>
           <button onclick="myFunction('Demo3')" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-users fa-fw w3-margin-right"></i> My Authors</button>
           <div id="Demo3" class="w3-hide w3-container">
@@ -271,7 +277,7 @@ h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
 </footer>
 
 <footer class="w3-container w3-theme-d5">
-  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+  <p>Powered by Bookmark</p>
 </footer>
  
 <script>
