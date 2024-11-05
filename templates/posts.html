@@ -92,6 +92,9 @@
                         <input type="hidden" name="PostID" value="{{ post_attribs.PostID }}">
                         <button type="submit" class="w3-button w3-red">Delete</button>
                     </form>
+                    <a href="{{ url_for('editpost', post_id=post_attribs.PostID) }}" class="w3-button w3-blue">Edit</a>
+
+
                 </td>
             </tr>            
             {% endfor %}
