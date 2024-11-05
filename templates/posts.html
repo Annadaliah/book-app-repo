@@ -77,6 +77,7 @@
                 <th>Book Name</th>
                 <th>Author</th>
                 <th>Post</th>
+                <th>Action</th>
             </tr>
             <!-- Python code to display DB information -->
             {% for post in posts %}
@@ -86,7 +87,13 @@
                 <td>{{ post_attribs.BookName }}</td>
                 <td>{{ post_attribs.Author }}</td>
                 <td>{{ post_attribs.Post }}</td>
-            </tr>
+                <td>
+                    <form action="{{ url_for('delete_post') }}" method="POST">
+                        <input type="hidden" name="PostID" value="{{ post_attribs.PostID }}">
+                        <button type="submit" class="w3-button w3-red">Delete</button>
+                    </form>
+                </td>
+            </tr>            
             {% endfor %}
             {% endfor %}
         </table>
