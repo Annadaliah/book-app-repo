@@ -11,30 +11,16 @@ from db.schema.books import Book
 
 from socketserver import *
 
-@app.route('/')
-def baseFile():
-        return render_template("baseFile.html")
-
-@app.route('/templates/')
-def baseFile2():
-    return render_template("baseFile2.html")
-
-@app.route('/home')
-def Home():
-     return render_template('home.html')
-
-@app.route('/home2', methods=['GET', 'POST'])
-def Home2():
-     
-     with app.app_context():
+@app.route('/', methods=['GET', 'POST'])
+def home():
+    with app.app_context():
 
         # select all posts
         stmt = select(Book)
         all_books = db.session.execute(stmt)
 
-        return render_template('home2.html', books=all_books)
-          
-     return render_template("home2.html")
+        return render_template('home.html', books=all_books)
+    return render_template("home.html")
 
 @app.route('/signup', methods=['GET','POST'])
 def signup():
