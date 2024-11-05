@@ -90,7 +90,10 @@
         <br>
 
         <input type="submit">
-      </form>
+      </form> 
+      {% if error %}
+        <p>{{ error }}</p>
+      {% endif %}
     </div>
   </div>
 

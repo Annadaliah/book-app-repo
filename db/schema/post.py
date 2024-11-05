@@ -1,16 +1,16 @@
 from db.server import db
 
 class Post(db.Model):
-    __tablename__ = 'Posts'
-    TableID = db.Column(db.Integer, autoincrement=True)
-    #column 1 will be user ID
-    UserID = db.Column(db.Integer,primary_key=True)
-    #column 2 will be the book they're posting about - max length is 40 characters
-    BookName = db.Column(db.String(40))
-    #column 3 will be the author - max length 40 characters (not required)
-    Author = db.Column(db.String(40))
-    #column 4 will be the actual post - no limit on charactes
-    Post = db.Column(db.String(150))
+    __tablename__ = 'posts'  # Ensure the table name matches your database schema
+    
+    PostID = db.Column(db.Integer, primary_key=True)  # Primary key
+    UserID = db.Column(db.Integer, nullable=False)
+    BookName = db.Column(db.String(100), nullable=False)
+    Author = db.Column(db.String(100), nullable=False)
+    Post = db.Column(db.Text, nullable=False)
+
+    def __repr__(self):
+        return f"<Post {self.PostID}>"
 
     # Posts = db.relationship('Users', secondary = 'UserPost', back_populates = "Users")
     def __init__(self, UserID, BookName, Author, Post):

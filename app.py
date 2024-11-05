@@ -24,8 +24,11 @@ def home():
 
 @app.route('/signup', methods=['GET','POST'])
 def signup():
-     if request.method == 'POST':
+    print(request.method)
+    if request.method == 'POST':
        
+        for key, value in request.form.items():
+             print(f'{key}: {value}')
         query = insert(User).values(request.form)
 
         with app.app_context():
@@ -35,7 +38,7 @@ def signup():
         return redirect (url_for ("loginpage"))
 
 
-     return render_template('signup.html')
+    return render_template('signup.html')
 
 @app.route('/createpost', methods=['GET','POST'])
 def createpost():
@@ -65,7 +68,7 @@ def posts():
 
 @app.route('/loginpage', methods=['GET', 'POST'])
 def loginpage():
-    
+    user_error_msg = ""
     if request.method == 'POST':
 
         if "Email" in request.form and "Password" in request.form:
@@ -76,12 +79,36 @@ def loginpage():
             print(request.form['Password'])
 
             if user[0] == request.form['Password']:
-                return redirect(url_for('oklogin'))
+                return redirect(url_for('home'))
         
             else: 
-                return redirect(url_for('home2'))   
+                user_error_msg = "invalid credentials :("
+                return render_template('loginpage.html', error = user_error_msg)
+
+
              
-    return render_template('loginpage.html')
+    return render_template('loginpage.html', error = user_error_msg)
+
+@app.route('/delete_post', methods=['POST'])
+def delete_post():
+    post_id = request.form['PostID']
+    post_to_delete = Post.query.filter_by(PostID=post_id).first()
+    
+    # Try to delete the post associated with the given UserID
+    try:
+        # Query to find and delete the post
+        post_to_delete = Post.query.filter_by(PostID=post_id).first()
+        if post_to_delete:
+            db.session.delete(post_to_delete)
+            db.session.commit()
+            print("Post deleted successfully")
+        else:
+            print("Post not found")
+    except Exception as error:
+        db.session.rollback()  # Rollback in case of any error
+        print(f"Error deleting post: {error}")
+    
+    return redirect(url_for('home'))
 
 
 
