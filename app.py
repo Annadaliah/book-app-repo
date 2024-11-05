@@ -110,6 +110,22 @@ def delete_post():
     
     return redirect(url_for('home'))
 
+@app.route('/editpost/<int:post_id>', methods=['GET', 'POST'])
+def editpost(post_id):
+    post = Post.query.get(post_id)
+    
+    if request.method == 'POST':
+        # Handle form submission to update the post
+        post.UserID = request.form['UserID']
+        post.BookName = request.form['BookName']
+        post.Author = request.form['Author']
+        post.Post = request.form['Post']
+        
+        db.session.commit()  # Save changes to database
+        
+        return redirect(url_for('posts'))  # Redirect back to posts page (or wherever you want)
+
+    return render_template('editpost.html', post=post)  # Pass the post object to the template
 
 
 if __name__ == '__main__':
