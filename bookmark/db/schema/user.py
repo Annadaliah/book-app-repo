@@ -2,9 +2,8 @@
 from db.server import db
 
 class User(db.Model):
-    __tablename__ = 'Users'
-    TableID = db.Column(db.Integer, autoincrement=True)
-    UserID = db.Column(db.String,primary_key=True)
+    __tablename__ = 'User'
+    UserID = db.Column(db.Integer, autoincrement=True,primary_key=True)
     FirstName = db.Column(db.String(40))
     LastName = db.Column(db.String(40))
     Email = db.Column(db.String(40))

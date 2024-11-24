@@ -1,9 +1,8 @@
 from db.server import db
 
 class Post(db.Model):
-    __tablename__ = 'posts'  # Ensure the table name matches your database schema
-    
-    PostID = db.Column(db.Integer, primary_key=True)  # Primary key
+    __tablename__ = 'Post'  # Ensure the table name matches your database schema
+    PostID = db.Column(db.Integer, autoincrement = True, primary_key=True)  # Primary key
     UserID = db.Column(db.Integer, nullable=False)
     BookName = db.Column(db.String(100), nullable=False)
     Author = db.Column(db.String(100), nullable=False)
@@ -20,15 +19,5 @@ class Post(db.Model):
         self.Author = Author
         self.Post = Post
         
-
-# """     def __repr__(self):
-#         # add text to the f-string
-#         return f"""
-#             "User: {self.UserID},
-#              Book: {self.BookName},
-#              Author: {self.Author},
-#              Post: {self.Post}
-#         """ """
-    
     def __repr__(self):
         return self.__repr__()

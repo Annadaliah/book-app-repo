@@ -7,7 +7,7 @@ from db.server import db
 
 from db.schema.post import Post
 from db.schema.user import User
-from db.schema.books import Book
+from db.schema.book import Book
 
 from socketserver import *
 
@@ -19,8 +19,8 @@ def home():
         stmt = select(Book)
         all_books = db.session.execute(stmt)
 
-        return render_template('home.html', books=all_books)
-    return render_template("home.html")
+        return render_template('NotLoggedInHome.html')
+    return render_template("NotLoggedInHome.html")
 
 @app.route('/signup', methods=['GET','POST'])
 def signup():
@@ -37,22 +37,32 @@ def signup():
 
         return redirect (url_for ("loginpage"))
 
-
     return render_template('signup.html')
+
+@app.route('/LoggedInHome', methods=['GET', 'POST'])
+def loggedInHome():
+    with app.app_context():
+
+        # select all posts
+        stmt = select(Book)
+        all_books = db.session.execute(stmt)
+
+        return render_template('LoggedInHome.html', books=all_books)
+    return render_template("NotLoggedInHome.html")
 
 @app.route('/createpost', methods=['GET','POST'])
 def createpost():
-     if request.method == 'POST':
+    if request.method == 'POST':
        
-          query = insert(Post).values(request.form)
+        query = insert(Post).values(request.form)
 
-          with app.app_context():
+        with app.app_context():
                 db.session.execute(query)
                 db.session.commit()
 
-          """ return redirect (url_for ('home2')) """
+        return redirect (url_for ("loggedInHome"))
 
-     return render_template('createpost.html')
+    return render_template('createpost.html')
 
 @app.route('/posts')
 def posts():
@@ -79,14 +89,12 @@ def loginpage():
             print(request.form['Password'])
 
             if user[0] == request.form['Password']:
-                return redirect(url_for('home'))
+                return redirect(url_for('loggedInHome'))
         
             else: 
                 user_error_msg = "invalid credentials :("
                 return render_template('loginpage.html', error = user_error_msg)
 
-
-             
     return render_template('loginpage.html', error = user_error_msg)
 
 @app.route('/delete_post', methods=['POST'])
@@ -116,7 +124,6 @@ def editpost(post_id):
     
     if request.method == 'POST':
         # Handle form submission to update the post
-        post.UserID = request.form['UserID']
         post.BookName = request.form['BookName']
         post.Author = request.form['Author']
         post.Post = request.form['Post']

@@ -6,8 +6,6 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import text
 
-from db.sql import queries
-
 # import environment variables from .env
 load_dotenv()
 
@@ -17,14 +15,16 @@ db_pass: str = os.getenv('db_pass')
 db_uri: str = f"postgresql://{db_owner}:{db_pass}@localhost/{db_name}"
 
 # create the flask application & connect to db
-app = Flask(__name__)
+app = Flask(__name__, 
+            template_folder = os.path.join(os.getcwd(), 'templates'), 
+            static_folder=os.path.join(os.getcwd(), 'static'))
 app.config["SQLALCHEMY_DATABASE_URI"] = db_uri
 db = SQLAlchemy(app)
 
-# this import is here because we need to initialize db before importing it into
-# the classes
+# import table to be created in postgres
+from db.schema.post import Post
 from db.schema.user import User
-
+from db.schema.book import Book
 
 # verify the db connection is successful
 with app.app_context():
@@ -42,12 +42,4 @@ with app.app_context():
     
     # create all database tables
     db.create_all()
-
-    # run queries to remove data from tables
-    for key, value in queries.items():
-        db.session.execute(text(value))
-        db.session.commit()
-
-
-
-
+    db.session.commit()

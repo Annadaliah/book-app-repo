@@ -1,15 +1,15 @@
 from db.server import db
 
 class Book(db.Model):
-    __tablename__ = 'Books'
-    TableID = db.Column(db.Integer, autoincrement=True)
+    __tablename__ = 'Book'
+    BookID = db.Column(db.Integer, autoincrement=True,primary_key=True)
     #column 1 will be the book title - max length is 40 characters
-    Title = db.Column(db.String(40),primary_key=True)
+    Title = db.Column(db.String(40))
     #column 2 will be the author - max length is 40 characters
     Author = db.Column(db.String(40))
     #column 3 will be the genre - max length 40 characters (not required)
     Genre = db.Column(db.String(40))
-    #column 4 will be the ISBN - integer
+    #column 4 will be the ISBN - string
     ISBN = db.Column(db.String)
     #column 5 will the publication date
     PubDate = db.Column(db.String)
@@ -34,4 +34,4 @@ class Book(db.Model):
         
     
     def __repr__(self):
-        return self.__repr__()
+        return f"Book(Title= '{self.Title}', Author= {self.Author}, Genre= {self.Genre}, ISBN= {self.ISBN}, PubDate= {self.PubDate}, Desc = {self.Desc}, CoverImage= {self.CoverImage}, Rating= {self.Rating})"
