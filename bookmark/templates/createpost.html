@@ -79,7 +79,7 @@
     <h1>Create a Post</h1>
     <div class="w3-container w3-card w3-white w3-round w3-margin">
       <!-- Create a sign up form here -->
-      <form method="POST">
+      <form name="createpost" method="POST" onsubmit="return validateForm()"">
         <label for="UserID">User ID:</label><br>
         <input type="text" id="UserID" name="UserID" placeholder="UserID" minlength="1" required /><br>
         <label for="BookName">Book Name:</label><br>
@@ -90,6 +90,18 @@
         <input type="text" id="Post" name="Post" placeholder="Create a post" required /><br>
         <input type="submit" value="Submit">
       </form>
+      <script>
+        function validateForm(){
+          var useridre = /^\d+$/;
+          let userid = document.forms["createpost"]["UserID"].value
+
+          if (!useridre.test(userid)){
+            alert("UserID can only contain numbers");
+            return false;
+          }
+          return true;
+        }
+      </script>
     </div>
     <br>
 
