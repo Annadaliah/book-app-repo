@@ -48,7 +48,7 @@
   <h1>Edit a Post</h1>
   <div class="w3-container w3-card w3-white w3-round w3-margin">
     <!-- Edit Post Form -->
-    <form method="POST">
+    <form name="editpost" method="POST" onsubmit="return validateForm()"">
       <label for="UserID">User ID:</label><br>
       <input type="text" id="UserID" name="UserID" value="{{ post.UserID }}" placeholder="UserID" required /><br>
 
@@ -63,6 +63,18 @@
 
       <input type="submit" value="Update Post" class="w3-button w3-blue">
     </form>
+    <script>
+      function validateForm(){
+        var useridre = /^\d+$/;
+        let userid = document.forms["editpost"]["UserID"].value
+
+        if (!useridre.test(userid)){
+          alert("UserID can only contain numbers");
+          return false;
+        }
+        return true;
+      }
+    </script>
   </div>
 
   <!-- Footer -->
