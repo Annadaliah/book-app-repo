@@ -9,7 +9,11 @@ from db.schema.post import Post
 from db.schema.user import User
 from db.schema.book import Book
 
-# Home route (for non-logged-in users)
+from socketserver import *
+
+import logging
+
+
 @app.route('/', methods=['GET', 'POST'])
 def home():
     # Select all books
@@ -29,7 +33,12 @@ def signup():
         db.session.execute(query)
         db.session.commit()
 
-        return redirect(url_for("loginpage"))
+
+                from logs.log import logger
+                app.logger.info("Signup worked")
+
+
+        return redirect (url_for ("loginpage"))
 
     return render_template('signup.html')
 

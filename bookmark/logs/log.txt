@@ -1,0 +1,6 @@
+2024-12-02 20:15:24,995 - INFO - info
+2024-12-02 20:15:24,995 - WARNING - warning
+2024-12-02 20:15:24,995 - ERROR - error
+2024-12-02 20:15:24,995 - CRITICAL - critical
+2024-12-02 20:34:31,398 - INFO - test the custom logger
+2024-12-02 22:42:54,912 - INFO - Signup worked
