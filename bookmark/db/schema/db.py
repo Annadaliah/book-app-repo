@@ -17,3 +17,13 @@ app.config["SQLALCHEMY_DATABASE_URI"] = f"postgresql://{os.getenv('db_owner')}:{
 
 # flask-sqlalchemy instance; used for all database interactions
 db = SQLAlchemy(app)
+
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+
+
+DATABASE_URL = 'postgresql://postgres:Macrikel3!@localhost/test_db'  # Adjust accordingly
+
+engine = create_engine(DATABASE_URL)
+Session = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+db_session = Session()

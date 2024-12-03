@@ -81,7 +81,7 @@
         <div class="w3-container w3-card w3-white w3-round w3-margin">
             <!-- Create a sign up form here -->
             <h1>Sign Up</h1>
-            <form class="w3-card w3-round w3-padding w3-white" method="post">
+            <form name="signup" class="w3-card w3-round w3-padding w3-white" method="post" onsubmit="return validateForm()">
                 <p label for="FirstName">First Name:</label></p>
                 <input class="w3-border w3-padding" type="text" id="FirstName" name="FirstName" placeholder="First Name"
                     minlength="1" required /><br>
@@ -101,6 +101,21 @@
                 <br>
 
             </form>
+            <script>
+            function validateForm(){
+                var namere = /^[a-zA-ZÀ-ÖØ-öø-ÿ'\-\s]+$/;
+                let firstname = document.forms["signup"]["FirstName"].value
+                let lastname = document.forms["signup"]["LastName"].value
+                if (!namere.test(firstname)){
+                  alert("Your first name can only contain characters, accented characters, apostrophes, hyphens, and spaces");
+                  return false;
+                } if (!namere.test(lastname)){
+                  alert("Your last name can only contain characters, accented characters, apostrophes, hyphens, and spaces");
+                  return false;
+                }
+                return true;
+              }
+              </script>
         </div>
 
         <!-- Footer -->
