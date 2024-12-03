@@ -21,7 +21,7 @@ def home():
     all_books = db.session.execute(stmt)
 
     return render_template('signup.html')
-
+from logs.log import logger
 # Signup route
 @app.route('/signup', methods=['GET','POST'])
 def signup():
@@ -34,8 +34,8 @@ def signup():
         db.session.commit()
 
 
-                from logs.log import logger
-                app.logger.info("Signup worked")
+                
+        app.logger.info("Signup worked")
 
 
         return redirect (url_for ("loginpage"))
