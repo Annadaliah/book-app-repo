@@ -11,6 +11,9 @@ from db.schema.book import Book
 
 from socketserver import *
 
+import logging
+
+
 @app.route('/', methods=['GET', 'POST'])
 def home():
     with app.app_context():
@@ -34,6 +37,10 @@ def signup():
         with app.app_context():
                 db.session.execute(query)
                 db.session.commit()
+
+                from logs.log import logger
+                app.logger.info("Signup worked")
+
 
         return redirect (url_for ("loginpage"))
 
